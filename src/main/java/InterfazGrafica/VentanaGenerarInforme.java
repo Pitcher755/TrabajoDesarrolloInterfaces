@@ -6,7 +6,7 @@ package InterfazGrafica;
 
 /**
  *
- * @author canta
+ * @author JFG
  */
 public class VentanaGenerarInforme extends javax.swing.JFrame {
 
@@ -15,6 +15,13 @@ public class VentanaGenerarInforme extends javax.swing.JFrame {
      */
     public VentanaGenerarInforme() {
         initComponents();
+    }
+    
+    /**
+     * 
+     */
+    public void generarInforme(){
+        
     }
 
     /**

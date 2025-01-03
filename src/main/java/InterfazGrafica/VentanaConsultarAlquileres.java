@@ -16,6 +16,13 @@ public class VentanaConsultarAlquileres extends javax.swing.JFrame {
     public VentanaConsultarAlquileres() {
         initComponents();
     }
+    
+    /**
+     * 
+     */
+    public void buscarAlquileres(){
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
