@@ -26,22 +26,37 @@ public class VentanaInicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jpImagen = new javax.swing.JPanel();
         jpPrincipal = new javax.swing.JPanel();
         jbRegistrar = new javax.swing.JButton();
         jbConsultar = new javax.swing.JButton();
         jbInformes = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
+        jpIzquierda = new javax.swing.JPanel();
+        jpDerecha = new javax.swing.JPanel();
+        jpArriba = new javax.swing.JPanel();
+        jpAbajo = new javax.swing.JPanel();
+        jlFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SmartOccupation - Inicio");
         setLocation(new java.awt.Point(400, 300));
-        setPreferredSize(new java.awt.Dimension(1280, 853));
-        setSize(new java.awt.Dimension(1280, 853));
+        setPreferredSize(new java.awt.Dimension(1280, 790));
+        setResizable(false);
+        setSize(new java.awt.Dimension(1920, 835));
 
-        jpPrincipal.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        jpImagen.setBackground(new java.awt.Color(0, 0, 0));
+        jpImagen.setMaximumSize(new java.awt.Dimension(3840, 2160));
+        jpImagen.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        // Color de fondo transparente
+        jpPrincipal.setBackground(new java.awt.Color(0, 0, 0, 0));
+        jpPrincipal.setFont(new java.awt.Font("Arial", 1, 24));
+        jpPrincipal.setOpaque(false);
+        jpPrincipal.setPreferredSize(new java.awt.Dimension(400, 300));
         jpPrincipal.setLayout(new java.awt.GridLayout(4, 1, 10, 10));
 
-        jbRegistrar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jbRegistrar.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jbRegistrar.setText("Registrar Nuevo Alquiler");
         jbRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,7 +65,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         });
         jpPrincipal.add(jbRegistrar);
 
-        jbConsultar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jbConsultar.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jbConsultar.setText("Consultar Alquileres");
         jbConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,7 +74,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         });
         jpPrincipal.add(jbConsultar);
 
-        jbInformes.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jbInformes.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jbInformes.setText("Generar Informes");
         jbInformes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,7 +83,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         });
         jpPrincipal.add(jbInformes);
 
-        jbSalir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jbSalir.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,15 +92,87 @@ public class VentanaInicio extends javax.swing.JFrame {
         });
         jpPrincipal.add(jbSalir);
 
+        jpImagen.add(jpPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 482, 361));
+
+        jpIzquierda.setOpaque(false);
+        jpIzquierda.setPreferredSize(new java.awt.Dimension(400, 357));
+
+        javax.swing.GroupLayout jpIzquierdaLayout = new javax.swing.GroupLayout(jpIzquierda);
+        jpIzquierda.setLayout(jpIzquierdaLayout);
+        jpIzquierdaLayout.setHorizontalGroup(
+            jpIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jpIzquierdaLayout.setVerticalGroup(
+            jpIzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 475, Short.MAX_VALUE)
+        );
+
+        jpImagen.add(jpIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, -1, 475));
+
+        jpDerecha.setOpaque(false);
+        jpDerecha.setPreferredSize(new java.awt.Dimension(400, 343));
+
+        javax.swing.GroupLayout jpDerechaLayout = new javax.swing.GroupLayout(jpDerecha);
+        jpDerecha.setLayout(jpDerechaLayout);
+        jpDerechaLayout.setHorizontalGroup(
+            jpDerechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 350, Short.MAX_VALUE)
+        );
+        jpDerechaLayout.setVerticalGroup(
+            jpDerechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 475, Short.MAX_VALUE)
+        );
+
+        jpImagen.add(jpDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(923, 180, 350, 475));
+
+        jpArriba.setOpaque(false);
+        jpArriba.setPreferredSize(new java.awt.Dimension(1093, 180));
+
+        javax.swing.GroupLayout jpArribaLayout = new javax.swing.GroupLayout(jpArriba);
+        jpArriba.setLayout(jpArribaLayout);
+        jpArribaLayout.setHorizontalGroup(
+            jpArribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1280, Short.MAX_VALUE)
+        );
+        jpArribaLayout.setVerticalGroup(
+            jpArribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jpImagen.add(jpArriba, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, -1));
+
+        jpAbajo.setOpaque(false);
+        jpAbajo.setPreferredSize(new java.awt.Dimension(1093, 200));
+
+        javax.swing.GroupLayout jpAbajoLayout = new javax.swing.GroupLayout(jpAbajo);
+        jpAbajo.setLayout(jpAbajoLayout);
+        jpAbajoLayout.setHorizontalGroup(
+            jpAbajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1280, Short.MAX_VALUE)
+        );
+        jpAbajoLayout.setVerticalGroup(
+            jpAbajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 200, Short.MAX_VALUE)
+        );
+
+        jpImagen.add(jpAbajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 655, 1280, -1));
+
+        jlFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/house-2368389_1280.jpg"))); // NOI18N
+        jlFondo.setMaximumSize(new java.awt.Dimension(1290, 835));
+        jlFondo.setMinimumSize(new java.awt.Dimension(1290, 835));
+        jlFondo.setPreferredSize(new java.awt.Dimension(1290, 835));
+        jpImagen.add(jlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 1277, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -154,6 +241,12 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JButton jbInformes;
     private javax.swing.JButton jbRegistrar;
     private javax.swing.JButton jbSalir;
+    private javax.swing.JLabel jlFondo;
+    private javax.swing.JPanel jpAbajo;
+    private javax.swing.JPanel jpArriba;
+    private javax.swing.JPanel jpDerecha;
+    private javax.swing.JPanel jpImagen;
+    private javax.swing.JPanel jpIzquierda;
     private javax.swing.JPanel jpPrincipal;
     // End of variables declaration//GEN-END:variables
 }

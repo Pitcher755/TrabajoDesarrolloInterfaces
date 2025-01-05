@@ -8,10 +8,14 @@ import Modelos.Alquiler;
 import java.util.List;
 
 /**
- *
+ * Esta clase gestiona las acciones relacionadas con los clientes, 
+ * como buscar, guardar y eliminar clientes.
+ * 
  * @author JFG
  */
 public class ControladorAlquiler {
+    
+    // Simular
     // Métodos
     
     /**
