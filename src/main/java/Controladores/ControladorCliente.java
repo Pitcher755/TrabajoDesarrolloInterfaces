@@ -133,7 +133,8 @@ public class ControladorCliente {
     public void eliminarCliente(String dni) {
         String consulta = "DELETE FROM Cliente WHERE dni = ?";
 
-        try (Connection conexion = ConexionBBDD.conectar(); PreparedStatement pstmt = conexion.prepareStatement(consulta)) {
+        try (Connection conexion = ConexionBBDD.conectar(); 
+            PreparedStatement pstmt = conexion.prepareStatement(consulta)) {
 
             pstmt.setString(1, dni);
             int filasAfectadas = pstmt.executeUpdate();
