@@ -57,8 +57,9 @@ public class VentanaInicio extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(1920, 835));
 
-        jpImagen.setBackground(new java.awt.Color(0, 0, 0));
+        jpImagen.setBackground(new java.awt.Color(204, 204, 255));
         jpImagen.setMaximumSize(new java.awt.Dimension(3840, 2160));
+        jpImagen.setOpaque(false);
         jpImagen.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         // Color de fondo transparente
@@ -170,7 +171,6 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         jpImagen.add(jpAbajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 655, 1280, -1));
 
-        jlFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/house-2368389_1280.jpg"))); // NOI18N
         jlFondo.setMaximumSize(new java.awt.Dimension(1290, 835));
         jlFondo.setMinimumSize(new java.awt.Dimension(1290, 835));
         jlFondo.setPreferredSize(new java.awt.Dimension(1290, 835));
