@@ -71,7 +71,9 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         jlFechaInicio = new javax.swing.JLabel();
         jtExpediente = new javax.swing.JTextField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
         jpBotones = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -84,7 +86,7 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         jLabel14.setText("DNI");
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel15.setText("Cuenta Bancaria");
+        jLabel15.setText("Dirección");
 
         jtNombre.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jtNombre.setText("Nombre ");
@@ -106,7 +108,7 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         });
 
         jtBanco.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jtBanco.setText("IBAN");
+        jtBanco.setText("Dirección de Facturación");
         jtBanco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtBancoActionPerformed(evt);
@@ -158,25 +160,25 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
                 .addGroup(jpClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpClienteLayout.createSequentialGroup()
                         .addGroup(jpClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel14))
-                        .addGap(64, 64, 64)
-                        .addGroup(jpClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtDni)
-                            .addComponent(jtBanco)
-                            .addGroup(jpClienteLayout.createSequentialGroup()
-                                .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jtApellidos))))
-                    .addGroup(jpClienteLayout.createSequentialGroup()
-                        .addGroup(jpClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jlTelefono)
                             .addComponent(jlEmail)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(37, 37, 37)
+                        .addGap(32, 32, 32)
                         .addGroup(jpClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtEmail)
-                            .addComponent(jtTelefono)))))
+                            .addComponent(jtTelefono)
+                            .addComponent(jtEmail)))
+                    .addGroup(jpClienteLayout.createSequentialGroup()
+                        .addGroup(jpClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15))
+                        .addGap(119, 119, 119)
+                        .addGroup(jpClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtBanco)
+                            .addComponent(jtDni)
+                            .addGroup(jpClienteLayout.createSequentialGroup()
+                                .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))))))
         );
         jpClienteLayout.setVerticalGroup(
             jpClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,13 +286,13 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDatosViviendaLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(jpDatosViviendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jlPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlBanios, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlHabitaciones)
                     .addComponent(jlMetros, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                    .addComponent(jlReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addGroup(jpDatosViviendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jtPrecio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtBanos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -358,7 +360,14 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
 
         jDateChooser1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
-        jDateChooser2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jTextField1.setText("Duración en meses");
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setText("Estado de Pago");
+
+        jTextField2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jTextField2.setText("Estado de pago");
 
         javax.swing.GroupLayout jpDatosAlquilerLayout = new javax.swing.GroupLayout(jpDatosAlquiler);
         jpDatosAlquiler.setLayout(jpDatosAlquilerLayout);
@@ -367,19 +376,25 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
             .addGroup(jpDatosAlquilerLayout.createSequentialGroup()
                 .addGroup(jpDatosAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpDatosAlquilerLayout.createSequentialGroup()
+                        .addGap(206, 206, 206)
+                        .addComponent(jlDatosAlquiler, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jpDatosAlquilerLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(jpDatosAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jlExplediente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jlFechaInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jlFechaFin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(70, 70, 70)
-                        .addGroup(jpDatosAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jDateChooser2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jtExpediente, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)))
-                    .addGroup(jpDatosAlquilerLayout.createSequentialGroup()
-                        .addGap(206, 206, 206)
-                        .addComponent(jlDatosAlquiler, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jpDatosAlquilerLayout.createSequentialGroup()
+                                .addGroup(jpDatosAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jlExplediente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jlFechaInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jlFechaFin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(70, 70, 70))
+                            .addGroup(jpDatosAlquilerLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(66, 66, 66)))
+                        .addGroup(jpDatosAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jtExpediente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
+                            .addComponent(jTextField1)
+                            .addComponent(jTextField2))))
                 .addContainerGap())
         );
         jpDatosAlquilerLayout.setVerticalGroup(
@@ -387,19 +402,23 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
             .addGroup(jpDatosAlquilerLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jlDatosAlquiler, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addGroup(jpDatosAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlExplediente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jtExpediente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
+                .addGap(42, 42, 42)
                 .addGroup(jpDatosAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jlFechaInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
-                .addGap(60, 60, 60)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
                 .addGroup(jpDatosAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGroup(jpDatosAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26))
         );
 
         jButton2.setBackground(new java.awt.Color(255, 204, 204));
@@ -561,11 +580,13 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel jlBanios;
     private javax.swing.JLabel jlDatosAlquiler;
     private javax.swing.JLabel jlDatosVivienda;

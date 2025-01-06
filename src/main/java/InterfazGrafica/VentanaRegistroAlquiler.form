@@ -108,32 +108,32 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jtDni" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jtBanco" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jtNombre" min="-2" pref="144" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jtApellidos" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jlTelefono" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jlEmail" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel13" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jtEmail" max="32767" attributes="0"/>
                                   <Component id="jtTelefono" max="32767" attributes="0"/>
+                                  <Component id="jtEmail" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jtBanco" max="32767" attributes="0"/>
+                                  <Component id="jtDni" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jtNombre" min="-2" pref="144" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jtApellidos" min="-2" pref="223" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -190,7 +190,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Cuenta Bancaria"/>
+                <Property name="text" type="java.lang.String" value="Direcci&#xf3;n"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jtNombre">
@@ -228,7 +228,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="IBAN"/>
+                <Property name="text" type="java.lang.String" value="Direcci&#xf3;n de Facturaci&#xf3;n"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtBancoActionPerformed"/>
@@ -298,14 +298,14 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jlPrecio" alignment="0" min="-2" pref="113" max="-2" attributes="0"/>
                           <Component id="jlBanios" min="-2" pref="113" max="-2" attributes="0"/>
                           <Component id="jlHabitaciones" min="-2" max="-2" attributes="0"/>
                           <Component id="jlMetros" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
                           <Component id="jlUbicacion" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
                           <Component id="jlReferencia" min="-2" pref="132" max="-2" attributes="0"/>
+                          <Component id="jlPrecio" alignment="0" pref="136" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="22" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jtPrecio" alignment="1" min="-2" pref="415" max="-2" attributes="0"/>
                           <Component id="jtBanos" alignment="1" min="-2" pref="415" max="-2" attributes="0"/>
@@ -498,23 +498,32 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jlExplediente" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jlFechaInicio" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jlFechaFin" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jDateChooser2" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jDateChooser1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jtExpediente" pref="402" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
                               <Component id="jlDatosAlquiler" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jlExplediente" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jlFechaInicio" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jlFechaFin" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jDateChooser1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jtExpediente" alignment="1" pref="402" max="32767" attributes="0"/>
+                                  <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -526,22 +535,27 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jlDatosAlquiler" pref="57" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jlExplediente" alignment="3" max="32767" attributes="0"/>
                           <Component id="jtExpediente" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jlFechaInicio" max="32767" attributes="0"/>
-                          <Component id="jDateChooser1" pref="28" max="32767" attributes="0"/>
+                          <Component id="jDateChooser1" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jlFechaFin" min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="jDateChooser2" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="36" max="32767" attributes="0"/>
+                      <EmptySpace pref="35" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -597,11 +611,28 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser2">
+            <Component class="javax.swing.JTextField" name="jTextField1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="18" style="0"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="Duraci&#xf3;n en meses"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="18" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Estado de Pago"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField2">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Estado de pago"/>
               </Properties>
             </Component>
           </SubComponents>

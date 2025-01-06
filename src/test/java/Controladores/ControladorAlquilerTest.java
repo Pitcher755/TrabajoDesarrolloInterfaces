@@ -63,6 +63,12 @@ public class ControladorAlquilerTest {
 
         List<Alquiler> alquileres = controladorAlquiler.buscarAlquileresConFiltros("2023-01-01", null, "12345678A", "REF123");
         assertTrue(alquileres.size() > 0, "Debe haber al menos un alquiler guardado");
+        
+        // Limpiar el registro para que no interfiera con el test de eliminarAlquiler.
+        if (!alquileres.isEmpty()){
+            Alquiler guardado = alquileres.get(0);
+            controladorAlquiler.eliminarAlquiler(guardado.getnExpediente());
+        }
     }
 
     /**
@@ -72,15 +78,13 @@ public class ControladorAlquilerTest {
     public void testEliminarAlquiler() {
         Cliente cliente = new Cliente("12345678A", "Juan", "Pérez", "123456789", "juan.perez@example.com", "Calle Falsa 123");
         Vivienda vivienda = new Vivienda("REF123", "Calle Luna 12", 90, 3, 2, 750.0);
-        Alquiler alquiler = new Alquiler(72, "2023-01-01", 12, cliente, vivienda, true);
+        Alquiler alquiler = new Alquiler(0, "2023-01-01", 12, cliente, vivienda, true);
 
         controladorAlquiler.guardarAlquiler(alquiler);
         Alquiler guardado = controladorAlquiler.buscarAlquileresConFiltros("2023-01-01", null, "12345678A", "REF123").get(0);
         
         controladorAlquiler.eliminarAlquiler(guardado.getnExpediente());
         List<Alquiler> alquileres = controladorAlquiler.buscarAlquileresConFiltros(null, null, "12345678A", "REF123");
-        assertTrue(alquileres.isEmpty(), "El alquiler debería haber sido eliminado.");
-        
-                           
+        assertTrue(alquileres.isEmpty(), "El alquiler debería haber sido eliminado.");       
     }
 }

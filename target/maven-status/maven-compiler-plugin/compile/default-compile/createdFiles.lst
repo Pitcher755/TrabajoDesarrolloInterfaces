@@ -1,3 +1,4 @@
+InterfazGrafica\VentanaGenerarInforme$3.class
 Utilidades\ConexionBBDD.class
 InterfazGrafica\VentanaRegistroAlquiler$15.class
 InterfazGrafica\VentanaInicio$5.class
@@ -7,18 +8,22 @@ Utilidades\GenerarInforme.class
 Controladores\ControladorCliente.class
 InterfazGrafica\VentanaRegistroAlquiler$10.class
 Modelos\Alquiler.class
+InterfazGrafica\VentanaGenerarInforme$1.class
 InterfazGrafica\VentanaRegistroAlquiler$6.class
 InterfazGrafica\VentanaRegistroAlquiler$12.class
 InterfazGrafica\VentanaRegistroAlquiler$8.class
 Modelos\Cliente.class
+InterfazGrafica\VentanaGenerarInforme$4.class
 InterfazGrafica\VentanaRegistroAlquiler$3.class
 InterfazGrafica\VentanaInicio$3.class
 InterfazGrafica\VentanaRegistroAlquiler$5.class
+InterfazGrafica\VentanaGenerarInforme$2.class
 Controladores\ControladorVivienda.class
 InterfazGrafica\VentanaInicio.class
 Controladores\ControladorAlquiler.class
 InterfazGrafica\VentanaRegistroAlquiler$11.class
 InterfazGrafica\VentanaRegistroAlquiler$14.class
+InterfazGrafica\VentanaConsultarAlquileres$1.class
 InterfazGrafica\VentanaInicio$1.class
 InterfazGrafica\VentanaRegistroAlquiler$2.class
 Modelos\Vivienda.class

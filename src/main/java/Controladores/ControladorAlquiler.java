@@ -150,9 +150,12 @@ public class ControladorAlquiler {
 
             pstmt.setInt(1, numeroExpediente);
             int filasAfectadas = pstmt.executeUpdate();
+            conexion.commit(); // Confirmar la transacción a ver si elimina por fin
 
             if (filasAfectadas == 0) {
                 throw new IllegalArgumentException("Alquiler con número de expèdiente " + numeroExpediente + " no encontrado.");
+            } else {
+                System.out.println("Alquiler con numerode expediente " + numeroExpediente + " eliminado correctamente.");
             }
         } catch (SQLException e) {
             System.err.println("Error al eliminar alquiler: " + e.getMessage());

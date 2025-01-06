@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="Controladores.ControladorAlquilerTest" time="0.255" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="Controladores.ControladorAlquilerTest" time="0.264" tests="4" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="23"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="user.country" value="ES"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-23\bin"/>
-    <property name="sun.java.command" value="C:\Users\canta\AppData\Local\Temp\surefire15010654041331340283\surefirebooter-20250106182158673_3.jar C:\Users\canta\AppData\Local\Temp\surefire15010654041331340283 2025-01-06T18-21-58_545-jvmRun1 surefire-20250106182158673_1tmp surefire_0-20250106182158673_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\canta\AppData\Local\Temp\surefire498950128391852485\surefirebooter-20250106211127091_3.jar C:\Users\canta\AppData\Local\Temp\surefire498950128391852485 2025-01-06T21-11-26_748-jvmRun1 surefire-20250106211127091_1tmp surefire_0-20250106211127091_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="test" value="Controladores.ControladorAlquilerTest"/>
     <property name="surefire.test.class.path" value="C:\Users\canta\OneDrive\Escritorio\FP-DAM2\Desarrollo de interfaces\Trabajo de endoque\smartOcupation\target\test-classes;C:\Users\canta\OneDrive\Escritorio\FP-DAM2\Desarrollo de interfaces\Trabajo de endoque\smartOcupation\target\classes;C:\Users\canta\.m2\repository\unknown\binary\AbsoluteLayout\SNAPSHOT\AbsoluteLayout-SNAPSHOT.jar;C:\Users\canta\.m2\repository\com\toedter\jcalendar\1.4\jcalendar-1.4.jar;C:\Users\canta\.m2\repository\org\mariadb\jdbc\mariadb-java-client\3.3.3\mariadb-java-client-3.3.3.jar;C:\Users\canta\.m2\repository\com\github\waffle\waffle-jna\3.3.0\waffle-jna-3.3.0.jar;C:\Users\canta\.m2\repository\net\java\dev\jna\jna\5.13.0\jna-5.13.0.jar;C:\Users\canta\.m2\repository\net\java\dev\jna\jna-platform\5.13.0\jna-platform-5.13.0.jar;C:\Users\canta\.m2\repository\org\slf4j\jcl-over-slf4j\2.0.7\jcl-over-slf4j-2.0.7.jar;C:\Users\canta\.m2\repository\com\github\ben-manes\caffeine\caffeine\2.9.3\caffeine-2.9.3.jar;C:\Users\canta\.m2\repository\com\google\errorprone\error_prone_annotations\2.10.0\error_prone_annotations-2.10.0.jar;C:\Users\canta\.m2\repository\org\checkerframework\checker-qual\3.32.0\checker-qual-3.32.0.jar;C:\Users\canta\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.0\junit-jupiter-api-5.6.0.jar;C:\Users\canta\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\canta\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\canta\.m2\repository\org\junit\platform\junit-platform-commons\1.6.0\junit-platform-commons-1.6.0.jar;C:\Users\canta\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.6.0\junit-jupiter-params-5.6.0.jar;C:\Users\canta\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.0\junit-jupiter-engine-5.6.0.jar;C:\Users\canta\.m2\repository\org\junit\platform\junit-platform-engine\1.6.0\junit-platform-engine-1.6.0.jar;C:\Users\canta\.m2\repository\org\slf4j\slf4j-simple\2.0.9\slf4j-simple-2.0.9.jar;C:\Users\canta\.m2\repository\org\slf4j\slf4j-api\2.0.9\slf4j-api-2.0.9.jar;"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\canta\AppData\Local\Temp\surefire15010654041331340283\surefirebooter-20250106182158673_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\canta\AppData\Local\Temp\surefire498950128391852485\surefirebooter-20250106211127091_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="23.0.1+11-39"/>
@@ -60,8 +60,14 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="67.0"/>
   </properties>
-  <testcase name="testObtenerTodosLosAlquileres" classname="Controladores.ControladorAlquilerTest" time="0.185"/>
-  <testcase name="testEliminarAlquiler" classname="Controladores.ControladorAlquilerTest" time="0.033"/>
-  <testcase name="testBuscarAlquileresConFiltros" classname="Controladores.ControladorAlquilerTest" time="0.005"/>
-  <testcase name="testGuardarAlquiler" classname="Controladores.ControladorAlquilerTest" time="0.01"/>
+  <testcase name="testObtenerTodosLosAlquileres" classname="Controladores.ControladorAlquilerTest" time="0.191"/>
+  <testcase name="testEliminarAlquiler" classname="Controladores.ControladorAlquilerTest" time="0.033">
+    <system-out><![CDATA[Alquiler con numerode expediente 15 eliminado correctamente.
+]]></system-out>
+  </testcase>
+  <testcase name="testBuscarAlquileresConFiltros" classname="Controladores.ControladorAlquilerTest" time="0.006"/>
+  <testcase name="testGuardarAlquiler" classname="Controladores.ControladorAlquilerTest" time="0.013">
+    <system-out><![CDATA[Alquiler con numerode expediente 16 eliminado correctamente.
+]]></system-out>
+  </testcase>
 </testsuite>
