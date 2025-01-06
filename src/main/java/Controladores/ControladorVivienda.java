@@ -40,7 +40,7 @@ public class ControladorVivienda {
                         resultado.getInt("metros"),
                         resultado.getInt("habitaciones"),
                         resultado.getInt("banios"),
-                        resultado.getDouble("precioMes")
+                        resultado.getDouble("precio_mensual")
                 );
                 viviendas.add(vivienda);
             }
@@ -72,7 +72,7 @@ public class ControladorVivienda {
                         resultado.getInt("metros"),
                         resultado.getInt("habitaciones"),
                         resultado.getInt("banios"),
-                        resultado.getDouble("precioMes")
+                        resultado.getDouble("precio_mensual")
                 );
             }
         } catch (SQLException e) {
@@ -89,8 +89,8 @@ public class ControladorVivienda {
      */
     public void guardarVivienda(Vivienda vivienda) {
         String consultaExiste = "SELECT * FROM Vivienda WHERE referencia = ?";
-        String consultaInsert = "INSERT INTO Vivienda (referencia, ubicacion, metros, habitaciones, banios, precioMes) VALUES (?, ?, ?, ?, ?, ?)";
-        String consultaUpdate = "UPDATE Vivienda SET ubicacion = ?, metros = ?, habitaciones = ?, banios = ?, precioMes = ? WHERE referencia = ?";
+        String consultaInsert = "INSERT INTO Vivienda (referencia, ubicacion, metros, habitaciones, banios, precio_mensual) VALUES (?, ?, ?, ?, ?, ?)";
+        String consultaUpdate = "UPDATE Vivienda SET ubicacion = ?, metros = ?, habitaciones = ?, banios = ?, precio_mensual = ? WHERE referencia = ?";
 
         try (Connection conexion = ConexionBBDD.conectar(); PreparedStatement pstmtExiste = conexion.prepareStatement(consultaExiste)) {
 

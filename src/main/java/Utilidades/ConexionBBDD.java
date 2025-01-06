@@ -16,7 +16,7 @@ import java.sql.SQLException;
 public class ConexionBBDD {
     
     // configuración de la base de datos
-    private static final String URL = "jdbc:mariad://localhost:3308/smartOcupation";
+    private static final String URL = "jdbc:mariadb://localhost:3308/smartocupation";
     private static final String USUARIO = "root";
     private static final String CONTRASENA = "diciembre2024";
     
