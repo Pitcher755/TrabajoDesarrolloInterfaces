@@ -4,17 +4,29 @@
  */
 package InterfazGrafica;
 
+import Controladores.ControladorAlquiler;
+import Modelos.Alquiler;
+import Utilidades.GenerarInforme;
+import java.io.File;
+import java.util.List;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
 /**
+ * Ventana principal de la aplicación que da acceso al resto de funciones.
  *
- * @author canta
+ * @author JFG
  */
 public class VentanaInicio extends javax.swing.JFrame {
+    
+    private ControladorAlquiler  contrloladorAlquiler;
 
     /**
      * Creates new form VentanaInicio
      */
     public VentanaInicio() {
         initComponents();
+        contrloladorAlquiler = new ControladorAlquiler();
     }
 
     /**
@@ -191,9 +203,30 @@ public class VentanaInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jbConsultarActionPerformed
 
     private void jbInformesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInformesActionPerformed
-        // Abre la ventana de generación de informes
-        new VentanaGenerarInforme().setVisible(true);
-        dispose();
+        // Abre un diálogo para guardar el archivo PDF
+        JFileChooser elegir = new JFileChooser();
+        elegir.setDialogTitle("Guardar Informe");
+        elegir.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        
+        // Añadir un filtro para archivos PDF
+        elegir.setFileFilter(new javax.swing.filechooser.FileNameExtensionFilter("PDF Documents", "pdf"));
+        
+        int seleccionUsuario = elegir.showSaveDialog(this);
+        if (seleccionUsuario == JFileChooser.APPROVE_OPTION){
+            File archivoSeleccionado = elegir.getSelectedFile();
+            String rutaArchivo = archivoSeleccionado.getAbsolutePath();
+            
+            // Asegurar que el archivo tenga extensión PDF
+            if (!rutaArchivo.toLowerCase().endsWith(".pdf")){
+                rutaArchivo += ".pdf";
+            }
+            
+            // Generar el informe PDF
+            List<Alquiler> alquileres = contrloladorAlquiler.obtenerTodosLosAlquileres();
+            GenerarInforme.generarInformePDF(alquileres, rutaArchivo);
+            
+            JOptionPane.showMessageDialog(this,"Su informe se ha creado correctamente en: " + rutaArchivo);
+        }
     }//GEN-LAST:event_jbInformesActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
@@ -228,6 +261,23 @@ public class VentanaInicio extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()){
+                if ("Nimbus".equals(info.getName())){
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(VentanaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex){
+            java.util.logging.Logger.getLogger(VentanaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex){
+            java.util.logging.Logger.getLogger(VentanaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex){
+            java.util.logging.Logger.getLogger(VentanaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

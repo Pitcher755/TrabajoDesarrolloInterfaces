@@ -2,6 +2,7 @@ InterfazGrafica\VentanaGenerarInforme$3.class
 Utilidades\ConexionBBDD.class
 InterfazGrafica\VentanaRegistroAlquiler$15.class
 InterfazGrafica\VentanaInicio$5.class
+InterfazGrafica\VentanaConsultarAlquileres$2.class
 InterfazGrafica\VentanaGenerarInforme.class
 InterfazGrafica\VentanaRegistroAlquiler$1.class
 Utilidades\GenerarInforme.class
@@ -13,6 +14,7 @@ InterfazGrafica\VentanaRegistroAlquiler$6.class
 InterfazGrafica\VentanaRegistroAlquiler$12.class
 InterfazGrafica\VentanaRegistroAlquiler$8.class
 Modelos\Cliente.class
+InterfazGrafica\VentanaConsultarAlquileres$4.class
 InterfazGrafica\VentanaGenerarInforme$4.class
 InterfazGrafica\VentanaRegistroAlquiler$3.class
 InterfazGrafica\VentanaInicio$3.class
@@ -21,11 +23,13 @@ InterfazGrafica\VentanaGenerarInforme$2.class
 Controladores\ControladorVivienda.class
 InterfazGrafica\VentanaInicio.class
 Controladores\ControladorAlquiler.class
+InterfazGrafica\VentanaConsultarAlquileres$6.class
 InterfazGrafica\VentanaRegistroAlquiler$11.class
 InterfazGrafica\VentanaRegistroAlquiler$14.class
 InterfazGrafica\VentanaConsultarAlquileres$1.class
 InterfazGrafica\VentanaInicio$1.class
 InterfazGrafica\VentanaRegistroAlquiler$2.class
+InterfazGrafica\VentanaConsultarAlquileres$5.class
 Modelos\Vivienda.class
 InterfazGrafica\VentanaRegistroAlquiler$9.class
 InterfazGrafica\VentanaInicio$2.class
@@ -35,3 +39,4 @@ InterfazGrafica\VentanaConsultarAlquileres.class
 InterfazGrafica\VentanaRegistroAlquiler$13.class
 InterfazGrafica\VentanaRegistroAlquiler$4.class
 InterfazGrafica\VentanaRegistroAlquiler.class
+InterfazGrafica\VentanaConsultarAlquileres$3.class

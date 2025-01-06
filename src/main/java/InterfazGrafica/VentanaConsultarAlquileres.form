@@ -153,6 +153,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="DNI"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtDniActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jtNombre">
           <Properties>
@@ -161,6 +164,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Nombre"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtNombreActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -187,6 +193,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Referencia"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtReferenciaActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -205,11 +214,11 @@
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="6" rowCount="0">
                 <Column editable="true" title="Expediente" type="java.lang.String"/>
-                <Column editable="true" title="Cliente" type="java.lang.Object"/>
-                <Column editable="true" title="Vivienda" type="java.lang.Object"/>
                 <Column editable="true" title="Fecha inicio" type="java.lang.String"/>
                 <Column editable="true" title="Duraci&#xf3;n" type="java.lang.String"/>
-                <Column editable="true" title="Estado" type="java.lang.Boolean"/>
+                <Column editable="true" title="DNI Cliente" type="java.lang.String"/>
+                <Column editable="true" title="Ref. Vivienda" type="java.lang.String"/>
+                <Column editable="true" title="Pagado" type="java.lang.Boolean"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -260,9 +269,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="117" max="-2" attributes="0"/>
+                  <Component id="jbBuscar" min="-2" pref="117" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton2" min="-2" pref="121" max="-2" attributes="0"/>
+                  <Component id="jbVolver" min="-2" pref="121" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -272,8 +281,8 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="jbBuscar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="jbVolver" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="43" max="32767" attributes="0"/>
               </Group>
@@ -281,21 +290,27 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="jbBuscar">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbBuscarActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="jbVolver">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Volver"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbVolverActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
