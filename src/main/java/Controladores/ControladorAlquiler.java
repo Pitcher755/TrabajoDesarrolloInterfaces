@@ -121,16 +121,27 @@ public class ControladorAlquiler {
      * @param alquiler el objeto Alquiler a guardar.
      */
     public void guardarAlquiler(Alquiler alquiler) {
+        ControladorCliente controladorCliente= new ControladorCliente();
+        ControladorVivienda controladorVivienda = new ControladorVivienda();
+        
+        // Guardar o actualizar el cliente
+        controladorCliente.guardarCliente(alquiler.getCliente());
+        
+        // Guardar o actualizar la vivienda
+        controladorVivienda.guardarVivienda(alquiler.getVivienda());
+        
+        // Guardar el alquiler
         String consulta = "INSERT INTO alquiler (fecha_inicio, duracion_meses, estado_pago, dni_cliente, referencia_vivienda) VALUES (?, ?, ?, ?, ?)";
-
-        try (Connection conexion = ConexionBBDD.conectar(); PreparedStatement pstmt = conexion.prepareStatement(consulta)) {
-
+        
+        // Guardar el alquiler
+        try (Connection conexion = ConexionBBDD.conectar();                                  
+             PreparedStatement pstmt = conexion.prepareStatement(consulta)){
             pstmt.setDate(1, Date.valueOf(alquiler.getFechaInicio()));
             pstmt.setInt(2, alquiler.getDuracion());
             pstmt.setBoolean(3, alquiler.isEstadoPago());
             pstmt.setString(4, alquiler.getCliente().getDni());
             pstmt.setString(5, alquiler.getVivienda().getReferencia());
-            pstmt.executeUpdate();
+            pstmt.executeUpdate();            
         } catch (SQLException e) {
             System.err.println("Error al guardar el alquiler: " + e.getMessage());
         }

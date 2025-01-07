@@ -15,7 +15,7 @@ public class Cliente {
     private String apellidos;
     private String telefono;
     private String email;
-    private String direcciónFacturacion;
+    private String direccionFacturacion;
 
     // Constructor con parámetros
     public Cliente(String dni, String nombre, String apellidos, String telefono, String email, String direcciónFacturacion ) {
@@ -24,7 +24,7 @@ public class Cliente {
         this.apellidos = apellidos;
         this.telefono = telefono;
         this.email = email;
-        this.direcciónFacturacion = direcciónFacturacion;
+        this.direccionFacturacion = direcciónFacturacion;
     }
     
     
@@ -70,11 +70,11 @@ public class Cliente {
         this.email = email;
     }
 
-    public String getDirecciónFacturacion() {
-        return direcciónFacturacion;
+    public String getDireccionFacturacion() {
+        return direccionFacturacion;
     }
 
-    public void setDirecciónFacturacion(String direcciónFacturacion) {
-        this.direcciónFacturacion = direcciónFacturacion;
+    public void setDireccionFacturacion(String direcciónFacturacion) {
+        this.direccionFacturacion = direcciónFacturacion;
     }   
 }

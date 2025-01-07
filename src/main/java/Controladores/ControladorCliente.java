@@ -104,7 +104,7 @@ public class ControladorCliente {
                     pstmtUpdate.setString(2, cliente.getApellidos());
                     pstmtUpdate.setString(3, cliente.getTelefono());
                     pstmtUpdate.setString(4, cliente.getEmail());
-                    pstmtUpdate.setString(5, cliente.getDirecciónFacturacion());
+                    pstmtUpdate.setString(5, cliente.getDireccionFacturacion());
                     pstmtUpdate.setString(6, cliente.getDni());
                     pstmtUpdate.executeUpdate();
                 }
@@ -115,7 +115,7 @@ public class ControladorCliente {
                     pstmtInsert.setString(3, cliente.getApellidos());
                     pstmtInsert.setString(4, cliente.getTelefono());
                     pstmtInsert.setString(5, cliente.getEmail());
-                    pstmtInsert.setString(6, cliente.getDirecciónFacturacion());
+                    pstmtInsert.setString(6, cliente.getDireccionFacturacion());
                     pstmtInsert.executeUpdate();
                 }
             }

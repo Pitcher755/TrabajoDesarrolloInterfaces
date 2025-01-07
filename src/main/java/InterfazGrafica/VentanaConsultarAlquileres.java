@@ -282,6 +282,8 @@ public class VentanaConsultarAlquileres extends javax.swing.JFrame {
 
     // Acción del botón volver
     private void jbVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVolverActionPerformed
+        // Vuelve a la ventana de inicio
+        new VentanaInicio().setVisible(true);
         this.dispose(); // Cierra la ventana actual
     }//GEN-LAST:event_jbVolverActionPerformed
 

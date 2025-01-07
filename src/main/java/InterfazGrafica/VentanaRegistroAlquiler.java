@@ -10,7 +10,11 @@ import Modelos.Cliente;
 import Modelos.Vivienda;
 import com.toedter.calendar.JDateChooser;
 import java.text.SimpleDateFormat;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  * Ventana para registrar un nuevo alquiler. Permite al usuario ingresar los
@@ -19,9 +23,8 @@ import javax.swing.JOptionPane;
  *
  * @author JFG
  */
-
 public class VentanaRegistroAlquiler extends javax.swing.JFrame {
-    
+
     private ControladorAlquiler controladorAlquiler;
 
     /**
@@ -31,11 +34,82 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         initComponents();
         controladorAlquiler = new ControladorAlquiler();
     }
+
+    // Setters
+    public void setControladorAlquiler(ControladorAlquiler controladorAlquiler) {
+        this.controladorAlquiler = controladorAlquiler;
+    }
+
+    public void setJtDni(String dni) {
+        jtDni.setText(dni);
+    }
+
+    public void setJtNombre(String nombre) {
+        jtNombre.setText(nombre);
+    }
+
+    public void setJtApellidos(String apelliddos) {
+        jtApellidos.setText(apelliddos);
+    }
     
+    public void setJtTelefono(String telefono) {
+        jtTelefono.setText(telefono);
+    }
+    
+    public void setJtEmail(String email) {
+        jtEmail.setText(email);
+    }
+    
+    public void setJtFacturacion(String facturacion) {
+        jtFacturacion.setText(facturacion);
+    }
+
+    public void setJtReferencia(String referencia) {
+        jtReferencia.setText(referencia);
+    }
+    
+    public void setJtUbicacion(String ubicacion) {
+        jtUbicacion.setText(ubicacion);
+    }
+    
+    public void setJtMetros(String metros) {
+        jtMetros.setText(metros);
+    }
+    
+    public void setJtHabitaciones(String habitaciones) {
+        jtHabitaciones.setText(habitaciones);
+    }
+    
+    public void setJtBanos(String banos) {
+        jtBanos.setText(banos);
+    }
+    
+    public void setJtPrecio(String precio) {
+        jtPrecio.setText(precio);
+    }
+    
+    public void setJDateChooser1(java.util.Date fechaInicio) {
+        jDateChooser1.setDate(fechaInicio);
+    }
+    
+    public void setJtDuracion(String duracion) {
+        jtDuracion.setText(duracion);
+    }
+            
+    public void setJtExpediente(String expediente) {
+        jtExpediente.setText(expediente);
+    }
+  
+    public void setJtPagado(String pagado) {
+        jtPagado.setText(pagado);
+    }
+    
+
     /**
-     * Registra un nuevo alquiler utilizando los datos ingresados en el formulario.
+     * Registra un nuevo alquiler utilizando los datos ingresados en el
+     * formulario.
      */
-    public void registrarAlquiler(){
+    public void registrarAlquiler() {
         try {
             // Obtener los datos de un cliente
             String dni = jtDni.getText().trim();
@@ -44,9 +118,9 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
             String telefono = jtTelefono.getText().trim();
             String email = jtEmail.getText().trim();
             String direccion = jtFacturacion.getText().trim();
-            
+
             Cliente cliente = new Cliente(dni, nombre, apellidos, telefono, email, direccion);
-            
+
             // Obtener datos de la vivienda
             String referencia = jtReferencia.getText().trim();
             String ubicacion = jtUbicacion.getText().trim();
@@ -54,30 +128,32 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
             int habitaciones = Integer.parseInt(jtHabitaciones.getText().trim());
             int banios = Integer.parseInt(jtBanos.getText().trim());
             double precio = Double.parseDouble(jtPrecio.getText().trim());
-            
+
             Vivienda vivienda = new Vivienda(referencia, ubicacion, metros, habitaciones, banios, precio);
-            
+
             // Obtener los datos del alquiler
             String fechaInicio = new SimpleDateFormat("yyy-MM-dd").format(jDateChooser1.getDate());
             int duracionMeses = Integer.parseInt(jtDuracion.getText().trim());
             boolean estadoPago = Boolean.parseBoolean(jtPagado.getText().trim());
-            
+
             Alquiler alquiler = new Alquiler(0, fechaInicio, duracionMeses, cliente, vivienda, estadoPago);
-            
+
             // Guardar el alquiler en la base de datos
             controladorAlquiler.guardarAlquiler(alquiler);
-            
-            JOptionPane.showMessageDialog(this,"El alquiler se ha registrado correctamente.");
+
+            JOptionPane.showMessageDialog(this, "El alquiler se ha registrado correctamente.");
             limpiarCampos();
-            
+
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,"Error al requistrar el alquiler: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error al requistrar el alquiler: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
         }
-    }    
-        /**
-         * Limpia todos los campos del formulario
-         */
-        private void limpiarCampos(){
+    }
+
+    /**
+     * Limpia todos los campos del formulario
+     */
+    private void limpiarCampos() {
 
         jtDni.setText("");
         jtNombre.setText("");
@@ -94,8 +170,7 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         jDateChooser1.setDate(null);
         jtDuracion.setText("");
         jtPagado.setText("");
-        }
-    
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -149,7 +224,7 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         jbRegistrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1280, 835));
+        setPreferredSize(new java.awt.Dimension(1280, 935));
         setSize(new java.awt.Dimension(1280, 835));
 
         jlDni.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -416,7 +491,7 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         jlExplediente.setText("Nª Expediente");
 
         jlFechaFin.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jlFechaFin.setText("Fecha de Fin");
+        jlFechaFin.setText("Duración");
 
         jlFechaInicio.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jlFechaInicio.setText("Fecha de Inicio");
@@ -597,7 +672,8 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
 
     private void jbVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVolverActionPerformed
         // Vuelve a la ventana de inicio
-    this.dispose();
+        new VentanaInicio().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jbVolverActionPerformed
 
     private void jtBanosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtBanosActionPerformed
@@ -647,7 +723,7 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
     private void jtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtEmailActionPerformed
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser jDateChooser1;
@@ -692,4 +768,5 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
     private javax.swing.JTextField jtTelefono;
     private javax.swing.JTextField jtUbicacion;
     // End of variables declaration//GEN-END:variables
+
 }
