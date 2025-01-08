@@ -1,0 +1,7 @@
+Utilidades\ConexiónBBDDTest.class
+Controladores\ControladorAlquilerTest.class
+Utilidades\GenerarInformeTest.class
+InterfazGrafica\VentanaInicioTest.class
+Controladores\ControladorViviendaTest.class
+InterfazGrafica\VentanaRegistroAlquilerTest.class
+Controladores\ControladorClienteTest.class

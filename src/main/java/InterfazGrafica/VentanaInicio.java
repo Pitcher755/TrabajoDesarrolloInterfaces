@@ -10,6 +10,7 @@ import Utilidades.GenerarInforme;
 import java.awt.Dimension;
 import java.io.File;
 import java.util.List;
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -19,9 +20,8 @@ import javax.swing.JOptionPane;
  * @author JFG
  */
 public class VentanaInicio extends javax.swing.JFrame {
-    
-    private ControladorAlquiler  contrloladorAlquiler;
-    
+
+    private ControladorAlquiler contrloladorAlquiler;
 
     /**
      * Constructor
@@ -32,19 +32,39 @@ public class VentanaInicio extends javax.swing.JFrame {
         centrarVentana();
     }
 
+    public void setControladorAlquiler(ControladorAlquiler controlador) {
+        this.contrloladorAlquiler = controlador;
+    }
+
+    public ControladorAlquiler getControladorAlquiler() {
+        return contrloladorAlquiler;
+    }
+
+    public JButton getJbRegistrar() {
+        return jbRegistrar;
+    }
+
+    public JButton getJbConsultar() {
+        return jbConsultar;
+    }
+
+    public JButton getJbInformes() {
+        return jbInformes;
+    }
+
     /**
      * Método que coloca la ventana en el centro.
      */
-    private void centrarVentana(){
-        Dimension tamanioVentana  = getSize();
+    private void centrarVentana() {
+        Dimension tamanioVentana = getSize();
         Dimension tamanioPantalla = getToolkit().getDefaultToolkit().getScreenSize();
-        
+
         int x = (tamanioPantalla.width - tamanioVentana.width) / 2;
         int y = (tamanioPantalla.height - tamanioVentana.height) / 2;
-        
+
         setLocation(x, y);
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -223,25 +243,25 @@ public class VentanaInicio extends javax.swing.JFrame {
         JFileChooser elegir = new JFileChooser();
         elegir.setDialogTitle("Guardar Informe");
         elegir.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        
+
         // Añadir un filtro para archivos PDF
         elegir.setFileFilter(new javax.swing.filechooser.FileNameExtensionFilter("PDF Documents", "pdf"));
-        
+
         int seleccionUsuario = elegir.showSaveDialog(this);
-        if (seleccionUsuario == JFileChooser.APPROVE_OPTION){
+        if (seleccionUsuario == JFileChooser.APPROVE_OPTION) {
             File archivoSeleccionado = elegir.getSelectedFile();
             String rutaArchivo = archivoSeleccionado.getAbsolutePath();
-            
+
             // Asegurar que el archivo tenga extensión PDF
-            if (!rutaArchivo.toLowerCase().endsWith(".pdf")){
+            if (!rutaArchivo.toLowerCase().endsWith(".pdf")) {
                 rutaArchivo += ".pdf";
             }
-            
+
             // Generar el informe PDF
             List<Alquiler> alquileres = contrloladorAlquiler.obtenerTodosLosAlquileres();
             GenerarInforme.generarInformePDF(alquileres, rutaArchivo);
-            
-            JOptionPane.showMessageDialog(this,"Su informe se ha creado correctamente en: " + rutaArchivo);
+
+            JOptionPane.showMessageDialog(this, "Su informe se ha creado correctamente en: " + rutaArchivo);
         }
     }//GEN-LAST:event_jbInformesActionPerformed
 
@@ -278,22 +298,22 @@ public class VentanaInicio extends javax.swing.JFrame {
         //</editor-fold>
 
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()){
-                if ("Nimbus".equals(info.getName())){
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(VentanaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex){
+        } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(VentanaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex){
+        } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(VentanaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex){
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(VentanaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
