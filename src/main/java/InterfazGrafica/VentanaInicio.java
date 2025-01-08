@@ -7,6 +7,7 @@ package InterfazGrafica;
 import Controladores.ControladorAlquiler;
 import Modelos.Alquiler;
 import Utilidades.GenerarInforme;
+import java.awt.Dimension;
 import java.io.File;
 import java.util.List;
 import javax.swing.JFileChooser;
@@ -20,15 +21,30 @@ import javax.swing.JOptionPane;
 public class VentanaInicio extends javax.swing.JFrame {
     
     private ControladorAlquiler  contrloladorAlquiler;
+    
 
     /**
-     * Creates new form VentanaInicio
+     * Constructor
      */
     public VentanaInicio() {
         initComponents();
         contrloladorAlquiler = new ControladorAlquiler();
+        centrarVentana();
     }
 
+    /**
+     * Método que coloca la ventana en el centro.
+     */
+    private void centrarVentana(){
+        Dimension tamanioVentana  = getSize();
+        Dimension tamanioPantalla = getToolkit().getDefaultToolkit().getScreenSize();
+        
+        int x = (tamanioPantalla.width - tamanioVentana.width) / 2;
+        int y = (tamanioPantalla.height - tamanioVentana.height) / 2;
+        
+        setLocation(x, y);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -9,6 +9,7 @@ import Modelos.Alquiler;
 import Modelos.Cliente;
 import Modelos.Vivienda;
 import com.toedter.calendar.JDateChooser;
+import java.awt.Dimension;
 import java.text.SimpleDateFormat;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -28,11 +29,25 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
     private ControladorAlquiler controladorAlquiler;
 
     /**
-     * Creates new form VentanaRegistroAlquiler
+     * Constructor
      */
     public VentanaRegistroAlquiler() {
         initComponents();
         controladorAlquiler = new ControladorAlquiler();
+        centrarVentana();
+    }
+    
+    /**
+     * Método que coloca la ventana en el centro.
+     */
+    private void centrarVentana(){
+        Dimension tamanioVentana  = getSize();
+        Dimension tamanioPantalla = getToolkit().getDefaultToolkit().getScreenSize();
+        
+        int x = (tamanioPantalla.width - tamanioVentana.width) / 2;
+        int y = (tamanioPantalla.height - tamanioVentana.height) / 2;
+        
+        setLocation(x, y);
     }
 
     // Setters
@@ -96,9 +111,7 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         jtDuracion.setText(duracion);
     }
             
-    public void setJtExpediente(String expediente) {
-        jtExpediente.setText(expediente);
-    }
+   
   
     public void setJtPagado(String pagado) {
         jtPagado.setText(pagado);
@@ -214,11 +227,11 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         jlExplediente = new javax.swing.JLabel();
         jlFechaFin = new javax.swing.JLabel();
         jlFechaInicio = new javax.swing.JLabel();
-        jtExpediente = new javax.swing.JTextField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jtDuracion = new javax.swing.JTextField();
         jlPago = new javax.swing.JLabel();
         jtPagado = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         jpBotones = new javax.swing.JPanel();
         jbVolver = new javax.swing.JButton();
         jbRegistrar = new javax.swing.JButton();
@@ -234,7 +247,6 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         jlFacturacion.setText("Dirección");
 
         jtNombre.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jtNombre.setText("Nombre ");
         jtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtNombreActionPerformed(evt);
@@ -245,7 +257,6 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         jlDatosCliente.setText("Datos del cliente");
 
         jtDni.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jtDni.setText("DNI");
         jtDni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtDniActionPerformed(evt);
@@ -253,7 +264,6 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         });
 
         jtFacturacion.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jtFacturacion.setText("Dirección de Facturación");
         jtFacturacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtFacturacionActionPerformed(evt);
@@ -261,13 +271,12 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         });
 
         jlNombre.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jlNombre.setText("Nombre Completo");
+        jlNombre.setText("Nombre y Apellidos");
 
         jlTelefono.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jlTelefono.setText("Teléfono");
 
         jtTelefono.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jtTelefono.setText("Nº de teléfono");
         jtTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtTelefonoActionPerformed(evt);
@@ -275,7 +284,6 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         });
 
         jtApellidos.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jtApellidos.setText("Apellidos");
         jtApellidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtApellidosActionPerformed(evt);
@@ -286,7 +294,6 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         jlEmail.setText("Email");
 
         jtEmail.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jtEmail.setText("email");
         jtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtEmailActionPerformed(evt);
@@ -307,9 +314,8 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
                     .addGroup(jpClienteLayout.createSequentialGroup()
                         .addGroup(jpClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jlTelefono)
-                            .addComponent(jlEmail)
-                            .addComponent(jlNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
+                            .addComponent(jlEmail))
+                        .addGap(125, 125, 125)
                         .addGroup(jpClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jtTelefono)
                             .addComponent(jtEmail)))
@@ -324,7 +330,10 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
                             .addGroup(jpClienteLayout.createSequentialGroup()
                                 .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addComponent(jtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jpClienteLayout.createSequentialGroup()
+                        .addComponent(jlNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jpClienteLayout.setVerticalGroup(
             jpClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -377,7 +386,6 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         jlPrecio.setText("Precio Mensual");
 
         jtUbicacion.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jtUbicacion.setText("Dirección");
         jtUbicacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtUbicacionActionPerformed(evt);
@@ -385,7 +393,6 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         });
 
         jtMetros.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jtMetros.setText("Metros cuadrados");
         jtMetros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtMetrosActionPerformed(evt);
@@ -393,7 +400,6 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         });
 
         jtHabitaciones.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jtHabitaciones.setText("Número de habitaciones");
         jtHabitaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtHabitacionesActionPerformed(evt);
@@ -401,7 +407,6 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         });
 
         jtBanos.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jtBanos.setText("Número de baños");
         jtBanos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtBanosActionPerformed(evt);
@@ -409,7 +414,6 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         });
 
         jtPrecio.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jtPrecio.setText("Precio Mensual");
         jtPrecio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtPrecioActionPerformed(evt);
@@ -417,7 +421,6 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         });
 
         jtReferencia.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jtReferencia.setText("Referencia");
         jtReferencia.setSelectionColor(new java.awt.Color(0, 255, 0));
         jtReferencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -496,24 +499,22 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         jlFechaInicio.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jlFechaInicio.setText("Fecha de Inicio");
 
-        jtExpediente.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jtExpediente.setText("Expediente");
-        jtExpediente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtExpedienteActionPerformed(evt);
-            }
-        });
-
         jDateChooser1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
         jtDuracion.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jtDuracion.setText("Duración en meses");
 
         jlPago.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jlPago.setText("Estado de Pago");
 
         jtPagado.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jtPagado.setText("Estado de pago");
+        jtPagado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtPagadoActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel1.setText("AutoIncrementado");
 
         javax.swing.GroupLayout jpDatosAlquilerLayout = new javax.swing.GroupLayout(jpDatosAlquiler);
         jpDatosAlquiler.setLayout(jpDatosAlquilerLayout);
@@ -523,24 +524,22 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
                 .addGroup(jpDatosAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpDatosAlquilerLayout.createSequentialGroup()
                         .addGap(206, 206, 206)
-                        .addComponent(jlDatosAlquiler, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jlDatosAlquiler, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE))
                     .addGroup(jpDatosAlquilerLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(jpDatosAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpDatosAlquilerLayout.createSequentialGroup()
-                                .addGroup(jpDatosAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jlExplediente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jlFechaInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jlFechaFin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(70, 70, 70))
+                            .addGroup(jpDatosAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jlExplediente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jlFechaInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jlFechaFin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jpDatosAlquilerLayout.createSequentialGroup()
                                 .addComponent(jlPago)
                                 .addGap(66, 66, 66)))
                         .addGroup(jpDatosAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jtExpediente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
                             .addComponent(jtDuracion)
-                            .addComponent(jtPagado))))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jtPagado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         jpDatosAlquilerLayout.setVerticalGroup(
@@ -551,8 +550,8 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jpDatosAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlExplediente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jtExpediente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                    .addComponent(jLabel1))
+                .addGap(45, 45, 45)
                 .addGroup(jpDatosAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jlFechaInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -569,6 +568,7 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
 
         jbVolver.setBackground(new java.awt.Color(255, 204, 204));
         jbVolver.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jbVolver.setForeground(new java.awt.Color(0, 0, 0));
         jbVolver.setText("Volver");
         jbVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -578,6 +578,7 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
 
         jbRegistrar.setBackground(new java.awt.Color(204, 255, 204));
         jbRegistrar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jbRegistrar.setForeground(new java.awt.Color(0, 0, 0));
         jbRegistrar.setText("Completar Registro");
         jbRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -666,10 +667,6 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         registrarAlquiler();
     }//GEN-LAST:event_jbRegistrarActionPerformed
 
-    private void jtExpedienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtExpedienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtExpedienteActionPerformed
-
     private void jbVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVolverActionPerformed
         // Vuelve a la ventana de inicio
         new VentanaInicio().setVisible(true);
@@ -724,9 +721,14 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtEmailActionPerformed
 
+    private void jtPagadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtPagadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtPagadoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton jbRegistrar;
     private javax.swing.JButton jbVolver;
     private javax.swing.JLabel jlBanios;
@@ -757,7 +759,6 @@ public class VentanaRegistroAlquiler extends javax.swing.JFrame {
     private javax.swing.JTextField jtDni;
     private javax.swing.JTextField jtDuracion;
     private javax.swing.JTextField jtEmail;
-    private javax.swing.JTextField jtExpediente;
     private javax.swing.JTextField jtFacturacion;
     private javax.swing.JTextField jtHabitaciones;
     private javax.swing.JTextField jtMetros;

@@ -67,6 +67,7 @@ public class ControladorAlquiler {
         List<Alquiler> alquileres = new ArrayList<>();
         StringBuilder consulta = new StringBuilder("SELECT * FROM alquiler WHERE 1=1");
 
+        // Construcción de la consulta según los filtros añadidos.
         if (fechaInicio != null && !fechaInicio.isEmpty()) {
             consulta.append(" AND fecha_inicio >= ?");
         }
@@ -96,17 +97,39 @@ public class ControladorAlquiler {
                 pstmt.setString(indice++, referenciaVivienda);
             }
 
+            // Procesar los resultados
             ResultSet resultado = pstmt.executeQuery();
-
             while (resultado.next()) {
+
+                // Objeto Cliente solo con DNI
+                Cliente cliente = new Cliente(
+                        resultado.getString("dni_cliente"),
+                        null,
+                        null,
+                        null,
+                        null,
+                        null
+                );
+
+                // Objeto Vivienda solo con Referencia
+                Vivienda vivienda = new Vivienda(
+                        resultado.getString("referencia_vivienda"),
+                        null,
+                        0,
+                        0,
+                        0,
+                        0.0
+                );
+
                 Alquiler alquiler = new Alquiler(
                         resultado.getInt("numero_expediente"),
                         resultado.getDate("fecha_inicio").toString(),
                         resultado.getInt("duracion_meses"),
-                        new Cliente(resultado.getString("dni_cliente"), null, null, null, null, null),
-                        new Vivienda(resultado.getString("referencia_vivienda"), null, 0, 0, 0, 0.0),
+                        cliente,
+                        vivienda,
                         resultado.getBoolean("estado_pago")
                 );
+
                 alquileres.add(alquiler);
             }
         } catch (SQLException e) {
@@ -121,27 +144,26 @@ public class ControladorAlquiler {
      * @param alquiler el objeto Alquiler a guardar.
      */
     public void guardarAlquiler(Alquiler alquiler) {
-        ControladorCliente controladorCliente= new ControladorCliente();
+        ControladorCliente controladorCliente = new ControladorCliente();
         ControladorVivienda controladorVivienda = new ControladorVivienda();
-        
+
         // Guardar o actualizar el cliente
         controladorCliente.guardarCliente(alquiler.getCliente());
-        
+
         // Guardar o actualizar la vivienda
         controladorVivienda.guardarVivienda(alquiler.getVivienda());
-        
+
         // Guardar el alquiler
         String consulta = "INSERT INTO alquiler (fecha_inicio, duracion_meses, estado_pago, dni_cliente, referencia_vivienda) VALUES (?, ?, ?, ?, ?)";
-        
+
         // Guardar el alquiler
-        try (Connection conexion = ConexionBBDD.conectar();                                  
-             PreparedStatement pstmt = conexion.prepareStatement(consulta)){
+        try (Connection conexion = ConexionBBDD.conectar(); PreparedStatement pstmt = conexion.prepareStatement(consulta)) {
             pstmt.setDate(1, Date.valueOf(alquiler.getFechaInicio()));
             pstmt.setInt(2, alquiler.getDuracion());
             pstmt.setBoolean(3, alquiler.isEstadoPago());
             pstmt.setString(4, alquiler.getCliente().getDni());
             pstmt.setString(5, alquiler.getVivienda().getReferencia());
-            pstmt.executeUpdate();            
+            pstmt.executeUpdate();
         } catch (SQLException e) {
             System.err.println("Error al guardar el alquiler: " + e.getMessage());
         }

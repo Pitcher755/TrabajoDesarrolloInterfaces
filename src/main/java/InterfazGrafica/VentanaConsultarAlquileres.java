@@ -6,6 +6,7 @@ package InterfazGrafica;
 
 import Controladores.ControladorAlquiler;
 import Modelos.Alquiler;
+import java.awt.Dimension;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,13 +20,29 @@ import javax.swing.table.DefaultTableModel;
 public class VentanaConsultarAlquileres extends javax.swing.JFrame {
     
     private ControladorAlquiler controladorAlquiler;
+    
+    
 
     /**
-     * Creates new form VentanaConsultarAlquileres
+     * Constructor
      */
     public VentanaConsultarAlquileres() {
         initComponents();
         controladorAlquiler = new ControladorAlquiler();
+        centrarVentana();
+    }   
+    
+    /**
+     * Método que coloca la ventana en el centro.
+     */
+    private void centrarVentana(){
+        Dimension tamanioVentana  = getSize();
+        Dimension tamanioPantalla = getToolkit().getDefaultToolkit().getScreenSize();
+        
+        int x = (tamanioPantalla.width - tamanioVentana.width) / 2;
+        int y = (tamanioPantalla.height - tamanioVentana.height) / 2;
+        
+        setLocation(x, y);
     }
     
     /**
@@ -33,13 +50,15 @@ public class VentanaConsultarAlquileres extends javax.swing.JFrame {
      */
     public void buscarAlquileres(){
         // Obtener valores de los campos de texto y los DateChooser
-        String fechaInicio = jdcFechaInicio.getDate() != null ? new java.sql.Date(jdcFechaInicio.getDate().getTime()).toString() : null;
-        String fechaFin = jdcFechaFin.getDate() != null ? new java.sql.Date(jdcFechaFin.getDate().getTime()).toString() : null;
+        String fechaInicio = jdcFechaInicio.getDate() != null 
+                ? new java.sql.Date(jdcFechaInicio.getDate().getTime()).toString() : null;
+        String fechaFin = jdcFechaFin.getDate() != null 
+                ? new java.sql.Date(jdcFechaFin.getDate().getTime()).toString() : null;
         String dniCliente = jtDni.getText().trim();
         String referenciaVivienda = jtReferencia.getText().trim();
         
         // LLamar al controlador para buscar alquileres con los filtros
-        List<Alquiler> alquileres = controladorAlquiler.buscarAlquileresConFiltros(fechaInicio, fechaFin, dniCliente, referenciaVivienda);
+        List<Alquiler> alquileres = controladorAlquiler.buscarAlquileresConFiltros(fechaInicio,fechaFin, dniCliente, referenciaVivienda);
         
         // Actualizar la tabla con los resultados
         actualizarTablaResultados(alquileres);
@@ -89,7 +108,6 @@ public class VentanaConsultarAlquileres extends javax.swing.JFrame {
         jbVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1280, 835));
         setSize(new java.awt.Dimension(1920, 1280));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -104,7 +122,6 @@ public class VentanaConsultarAlquileres extends javax.swing.JFrame {
         jdcFechaInicio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         jtDni.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jtDni.setText("DNI");
         jtDni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtDniActionPerformed(evt);
@@ -112,7 +129,6 @@ public class VentanaConsultarAlquileres extends javax.swing.JFrame {
         });
 
         jtNombre.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jtNombre.setText("Nombre");
         jtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtNombreActionPerformed(evt);
@@ -126,7 +142,6 @@ public class VentanaConsultarAlquileres extends javax.swing.JFrame {
         jLabel5.setText("Referencia Vivienda");
 
         jtReferencia.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jtReferencia.setText("Referencia");
         jtReferencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtReferenciaActionPerformed(evt);
@@ -165,21 +180,27 @@ public class VentanaConsultarAlquileres extends javax.swing.JFrame {
                 .addGroup(jpFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jpFiltrosLayout.createSequentialGroup()
                         .addGroup(jpFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jdcFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jpFiltrosLayout.createSequentialGroup()
+                                .addGroup(jpFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jdcFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(36, 36, 36)
+                                .addComponent(jLabel2))
+                            .addComponent(jtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addGroup(jpFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jpFiltrosLayout.createSequentialGroup()
+                        .addGroup(jpFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4)
                             .addComponent(jdcFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel2))
-                    .addGroup(jpFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel5)
-                        .addComponent(jtReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(31, 31, 31)
-                .addGroup(jpFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                        .addGap(50, 50, 50)
+                        .addGroup(jpFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jtReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(79, 79, 79))))
         );
 
         jtabResultados.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -192,7 +213,7 @@ public class VentanaConsultarAlquileres extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -201,7 +222,9 @@ public class VentanaConsultarAlquileres extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jtabResultados);
 
+        jbBuscar.setBackground(new java.awt.Color(204, 255, 204));
         jbBuscar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jbBuscar.setForeground(new java.awt.Color(0, 0, 0));
         jbBuscar.setText("Buscar");
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -209,7 +232,9 @@ public class VentanaConsultarAlquileres extends javax.swing.JFrame {
             }
         });
 
+        jbVolver.setBackground(new java.awt.Color(255, 204, 204));
         jbVolver.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jbVolver.setForeground(new java.awt.Color(0, 0, 0));
         jbVolver.setText("Volver");
         jbVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -252,9 +277,9 @@ public class VentanaConsultarAlquileres extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jpFiltros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpFiltros, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jpBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
