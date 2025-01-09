@@ -8,8 +8,9 @@ import Controladores.ControladorAlquiler;
 import Modelos.Alquiler;
 import java.awt.Dimension;
 import java.util.List;
+import javax.swing.JButton;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
 
 /**
  * Ventana para consultaralquileres, con filtros y resultados en una tabla.
@@ -18,10 +19,8 @@ import javax.swing.table.DefaultTableModel;
  * @author JFG
  */
 public class VentanaConsultarAlquileres extends javax.swing.JFrame {
-    
+
     private ControladorAlquiler controladorAlquiler;
-    
-    
 
     /**
      * Constructor
@@ -30,45 +29,61 @@ public class VentanaConsultarAlquileres extends javax.swing.JFrame {
         initComponents();
         controladorAlquiler = new ControladorAlquiler();
         centrarVentana();
-    }   
-    
+    }
+
+    public JTable getJtabResultados() {
+        return jtabResultados;
+    }
+
+    public DefaultTableModel getTableModel() {
+        return (DefaultTableModel) jtabResultados.getModel();
+    }
+
+    public JButton getJbBuscar() {
+        return jbBuscar;
+    }
+
+    public JButton getJbVolver() {
+        return jbVolver;
+    }
+
     /**
      * Método que coloca la ventana en el centro.
      */
-    private void centrarVentana(){
-        Dimension tamanioVentana  = getSize();
+    private void centrarVentana() {
+        Dimension tamanioVentana = getSize();
         Dimension tamanioPantalla = getToolkit().getDefaultToolkit().getScreenSize();
-        
+
         int x = (tamanioPantalla.width - tamanioVentana.width) / 2;
         int y = (tamanioPantalla.height - tamanioVentana.height) / 2;
-        
+
         setLocation(x, y);
     }
-    
+
     /**
      * Método para buscar alquileres según los filtros y mostrar los resultados.
      */
-    public void buscarAlquileres(){
+    public void buscarAlquileres() {
         // Obtener valores de los campos de texto y los DateChooser
-        String fechaInicio = jdcFechaInicio.getDate() != null 
+        String fechaInicio = jdcFechaInicio.getDate() != null
                 ? new java.sql.Date(jdcFechaInicio.getDate().getTime()).toString() : null;
-        String fechaFin = jdcFechaFin.getDate() != null 
+        String fechaFin = jdcFechaFin.getDate() != null
                 ? new java.sql.Date(jdcFechaFin.getDate().getTime()).toString() : null;
         String dniCliente = jtDni.getText().trim();
         String referenciaVivienda = jtReferencia.getText().trim();
-        
+
         // LLamar al controlador para buscar alquileres con los filtros
-        List<Alquiler> alquileres = controladorAlquiler.buscarAlquileresConFiltros(fechaInicio,fechaFin, dniCliente, referenciaVivienda);
-        
+        List<Alquiler> alquileres = controladorAlquiler.buscarAlquileresConFiltros(fechaInicio, fechaFin, dniCliente, referenciaVivienda);
+
         // Actualizar la tabla con los resultados
         actualizarTablaResultados(alquileres);
     }
-    
-    private void actualizarTablaResultados(List<Alquiler> alquileres) {
+
+    public void actualizarTablaResultados(List<Alquiler> alquileres) {
         DefaultTableModel modelo = (DefaultTableModel) jtabResultados.getModel();
         modelo.setRowCount(0); // Limpiar la tabla
-        
-        for (Alquiler alquiler : alquileres){
+
+        for (Alquiler alquiler : alquileres) {
             Object[] fila = {
                 alquiler.getnExpediente(),
                 alquiler.getFechaInicio(),
@@ -137,6 +152,8 @@ public class VentanaConsultarAlquileres extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setText("Fecha de Fin");
+
+        jdcFechaFin.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel5.setText("Referencia Vivienda");
@@ -287,7 +304,7 @@ public class VentanaConsultarAlquileres extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+
     private void jtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtDniActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtDniActionPerformed
@@ -311,7 +328,6 @@ public class VentanaConsultarAlquileres extends javax.swing.JFrame {
         new VentanaInicio().setVisible(true);
         this.dispose(); // Cierra la ventana actual
     }//GEN-LAST:event_jbVolverActionPerformed
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

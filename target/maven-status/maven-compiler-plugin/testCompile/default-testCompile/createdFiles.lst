@@ -5,3 +5,4 @@ InterfazGrafica\VentanaInicioTest.class
 Controladores\ControladorViviendaTest.class
 InterfazGrafica\VentanaRegistroAlquilerTest.class
 Controladores\ControladorClienteTest.class
+InterfazGrafica\VentanaConsultarAlquileresTest.class
