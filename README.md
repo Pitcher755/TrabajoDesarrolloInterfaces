@@ -22,7 +22,7 @@
 
 1. Clona este repositorio:
     ```bash
-    git clone https://github.com/tu-usuario/SmartOccupation.git
+    git clone https://github.com/Pitcher755/SmartOccupation.git
     ```
 
 2. Configura la base de datos MariaDB según las instrucciones del proyecto.
